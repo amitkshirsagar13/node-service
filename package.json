@@ -4,13 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-=======
-    "start" : "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> 119c80faa41a7407e2384b2497d98710a13a5be1
   },
   "keywords": [],
   "author": "Amit Kshirsagar <amit.kshirsagar.13@gmail.com>",
