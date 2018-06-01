@@ -3,15 +3,39 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-        var myWebSocket = new WebSocket("ws://localhost:9090");
+        var myWebSocket = new WebSocket("ws://localhost:9091");
         myWebSocket.onmessage = function (evt) {
-            $('#message').append(evt.data);
+            $('#messageDiv').append(evt.data);
         };
+        function sendMessage() {
+            var message = $('#message').val();
+            var msgData = { 'id': $('#id').val(), 'name': $('#name').val(), 'message': $('#message').val() };
+
+            $.post({
+                url: `http://localhost:3000/notify/${$('#email').val()}`, data: msgData, success: function (result) {
+                    $("#post").html(result);
+                }
+            });
+        }
     </script>
 </head>
 
 <body>
-    <div id='message'></div>
+    <div>
+        <input id='id' placeholder="id" value="1" />
+        <br/>
+        <input id='name' placeholder="name" value="Poonam" />
+        <br/>
+        <input id='email' placeholder="email" value="poonam.kshirsagar.13@gmail.com" />
+        <br/>
+        <textarea id='message' placeholder="Enter Your Message">Sample Message</textarea>
+        <br/>
+        <button onclick="sendMessage();">Send Message</button>
+    </div>
+    <hr>
+    <div id='post'></div>
+    <hr>
+    <div id='messageDiv'></div>
 </body>
 
 </html>
