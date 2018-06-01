@@ -5,7 +5,7 @@
     <script type="text/javascript">
         var myWebSocket = new WebSocket("ws://localhost:9091");
         myWebSocket.onmessage = function (evt) {
-            $('#messageDiv').append(evt.data);
+            $('#messageDiv').append(evt.data + "<br/>");
         };
         function sendMessage() {
             var message = $('#message').val();
